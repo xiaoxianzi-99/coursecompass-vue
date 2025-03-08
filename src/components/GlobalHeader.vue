@@ -34,7 +34,7 @@
         <!-- 登录 -->
         <div
             class="block py-2 ml-2.5 mr-2.5 pl-3 pr-4 text-gray-900 rounded hover:bg-blue-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-blue-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 mx-2"
-            @click="$router.push('/login')">
+            @click="login">
           登录
         </div>
         <button data-collapse-toggle="navbar-search" type="button"
@@ -83,12 +83,33 @@
       </div>
     </div>
   </nav>
+  <el-dialog v-model="centerDialogVisible" title="登录" width="500" center>
+    <span>
+      关注公众号发送’登录码‘获取验证码
+    </span>
+    <img src="@/assets/logo.svg" width="200px">
+    <template #footer>
+      <div class="dialog-footer">
+        <el-button @click="centerDialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="centerDialogVisible = false">确认</el-button>
+      </div>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup>
-import {onMounted} from 'vue'
+import {onMounted,ref} from 'vue'
 import {initCollapses} from 'flowbite'
-
+import {ElMessage} from "element-plus";
+const centerDialogVisible = ref(false)
+import 'element-plus/es/components/message/style/css'
+const login =()=>{
+  // centerDialogVisible.value = true
+  ElMessage({
+    message: '小哥正在奋力开发中',
+    type: 'success'
+  });
+}
 // 初始化 flowbit 相关组件
 onMounted(() => {
   initCollapses();

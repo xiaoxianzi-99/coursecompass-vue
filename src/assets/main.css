@@ -12,3 +12,6 @@ body {
 [type='text']:focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus {
     box-shadow: 0 0 0 1px transparent inset!important;
 }
+[type='info']:focus, [type='success']:focus, [type='warning']:focus, [type='error']:focus {
+    box-shadow: 0 0 0 1px transparent inset!important;
+}
